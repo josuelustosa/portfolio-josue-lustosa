@@ -1,5 +1,6 @@
-import { ThemeToggle } from "./components/ui/ThemeToggle"
-import { metadata } from "./layout"
+import { ThemeToggle } from "./components/ui/ThemeToggle";
+import { metadata } from "./layout";
+import { ComingSoon } from "./components/layout/ComingSoon";
 
 export default function Home() {
   return (
@@ -13,6 +14,8 @@ export default function Home() {
           <p className="text-muted">{String(metadata.description ?? "")}</p>
         </div>
       </header>
+
+      {/* <ComingSoon /> */}
     </main>
-  )
+  );
 }
