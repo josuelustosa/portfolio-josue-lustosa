@@ -11,9 +11,9 @@ const juraFont = Jura({
 
 export const metadata: Metadata = {
   title: "Josué Lustosa | Desenvolvedor Front-end",
-  description: "Site pessoal (portfólio) moderno e profissional de Josué Lustosa — Desenvolvedor Front-end. Criado com React, Next.js (App Router), Tailwind CSS e muito café.",
+  description:
+    "Site pessoal (portfólio) moderno e profissional de Josué Lustosa — Desenvolvedor Front-end. Criado com React, Next.js (App Router), Tailwind CSS e muito café.",
 };
-
 
 export default function RootLayout({
   children,
@@ -29,7 +29,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
