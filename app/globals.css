@@ -17,8 +17,8 @@
 html[data-theme="light"],
 html.light {
   --bg-base: #f6f6f3;
-  --bg-surface: #ffffff;
-  --bg-elevated: #ecece7;
+  --bg-surface: #d1d1d1;
+  --bg-elevated: #bdbdbd;
   --accent: #fe6526;
   --text-primary: #151513;
   --text-secondary: #5f5f5a;
