@@ -32,7 +32,7 @@ export function ComingSoon() {
   return (
     <div className="min-h-screen py-18 px-8 flex flex-col items-center justify-center relative overflow-hidden">
       {/* Title Section */}
-      <h1 className="text-4xl md:text-5xl mb-4 md:mb-12 text-center font-bold tracking-tighter text-primary">
+      <h1 className="text-4xl md:text-5xl mb-4 md:mb-12 text-center font-bold tracking-tighter text-foreground">
         Em breve no ar...
       </h1>
 
@@ -119,7 +119,7 @@ export function ComingSoon() {
 
       {/* Footer */}
       <footer className="w-full mt-auto pt-8 border-t border-border animate-in fade-in duration-1000 delay-500">
-        <p className="text-center text-sm sm:text-sm text-muted-foreground font-light tracking-wide">
+        <p className="text-center text-sm sm:text-sm text-muted font-light tracking-wide">
           &copy; 2026 | Desenvolvido por{" "}
           <span className="font-bold text-accent">Josué Lustosa</span>. Todos os
           direitos reservados.
