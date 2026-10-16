@@ -10,13 +10,16 @@ const THEME_LABELS: Record<ThemeMode, string> = {
   system: "Sistema",
 }
 
+const subscribe = () => () => {}
+
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme()
-  const [mounted, setMounted] = React.useState(false)
-
-  React.useEffect(() => {
-    setMounted(true)
-  }, [])
+  // false during SSR and hydration, true on the client afterwards
+  const mounted = React.useSyncExternalStore(
+    subscribe,
+    () => true,
+    () => false,
+  )
 
   const currentTheme = mounted ? (theme ?? "system") : "system"
 
