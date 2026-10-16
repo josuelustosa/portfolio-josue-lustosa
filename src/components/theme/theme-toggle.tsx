@@ -4,7 +4,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
-import { THEME_MODES, useTheme, type ThemeMode } from "@/app/hooks/useTheme"
+import { THEME_MODES, useTheme, type ThemeMode } from "./use-theme"
 
 const THEME_LABELS: Record<ThemeMode, string> = {
   light: "Claro",

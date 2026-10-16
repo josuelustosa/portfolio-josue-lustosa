@@ -5,7 +5,7 @@ import {
   type ThemeProviderProps as NextThemesProviderProps,
 } from "next-themes"
 
-import type { ThemeMode } from "@/app/hooks/useTheme"
+import type { ThemeMode } from "./use-theme"
 
 export type AppThemeProviderProps = Omit<NextThemesProviderProps, "defaultTheme"> & {
   defaultTheme?: ThemeMode

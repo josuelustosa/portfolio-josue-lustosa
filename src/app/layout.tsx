@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Jura } from "next/font/google";
 import "./globals.css";
 
-import { ThemeProvider } from "./components/ui/ThemeProvider";
+import { ThemeProvider } from "@/components/theme/theme-provider";
+import { site } from "@/content/site";
 
 const juraFont = Jura({
   variable: "--font-jura",
@@ -10,9 +11,8 @@ const juraFont = Jura({
 });
 
 export const metadata: Metadata = {
-  title: "Josué Lustosa | Desenvolvedor Front-end",
-  description:
-    "Site pessoal (portfólio) moderno e profissional de Josué Lustosa — Desenvolvedor Front-end. Criado com React, Next.js (App Router), Tailwind CSS e muito café.",
+  title: site.title,
+  description: site.description,
 };
 
 export default function RootLayout({
