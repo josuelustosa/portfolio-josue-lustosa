@@ -21,16 +21,16 @@ Conventional Commits format, in English: `<type>(<scope>): <description>`.
 
 Copy the [template](#template) and fill it in, section by section:
 
-| Section | Content |
-|---|---|
-| Summary | 1–3 sentences: what the PR does and why. |
-| Type of change | Check every type present in the commits, and nothing else. |
-| Changes | One bullet per meaningful change, with a bold lead-in (`**Area:** …`). |
-| Context | Motivation: issue, advisory, decision. Remove it if obvious. |
-| How to test | Commands, plus manual steps with the expected result. |
-| Checklist | Check only what was actually done; explain unchecked items inline. |
-| Risks and rollback | What could break, who is affected, how to revert. |
-| Out of scope | Follow-ups intentionally left out. Remove it if there are none. |
+| Section            | Content                                                                |
+| ------------------ | ---------------------------------------------------------------------- |
+| Summary            | 1–3 sentences: what the PR does and why.                               |
+| Type of change     | Check every type present in the commits, and nothing else.             |
+| Changes            | One bullet per meaningful change, with a bold lead-in (`**Area:** …`). |
+| Context            | Motivation: issue, advisory, decision. Remove it if obvious.           |
+| How to test        | Commands, plus manual steps with the expected result.                  |
+| Checklist          | Check only what was actually done; explain unchecked items inline.     |
+| Risks and rollback | What could break, who is affected, how to revert.                      |
+| Out of scope       | Follow-ups intentionally left out. Remove it if there are none.        |
 
 Write in English with short sentences, link files and advisories, and add no AI agent attribution lines.
 

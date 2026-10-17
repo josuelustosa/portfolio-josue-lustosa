@@ -20,19 +20,19 @@ Every commit follows [Conventional Commits 1.0.0](https://www.conventionalcommit
 - **Length:** objective but descriptive enough to tell what changed and where. Aim for 50–72 characters, never more than 100.
 - **Breaking changes:** add `!` before the colon (`feat(theme)!: …`) and a `BREAKING CHANGE:` footer.
 
-| Type | Use for |
-|---|---|
-| `feat` | A new user-facing feature |
-| `fix` | A bug fix, including visual and accessibility bugs |
-| `refactor` | A code change with no behavior change |
-| `perf` | A performance improvement |
-| `style` | Formatting only (whitespace, quotes, semicolons), not CSS or visual changes |
-| `docs` | Documentation only |
-| `test` | Adding or fixing tests |
-| `build` | Build system, engines, Next.js, PostCSS or TypeScript configuration |
-| `ci` | CI configuration |
-| `chore` | Maintenance: dependencies (`chore(deps)`), tooling, housekeeping |
-| `revert` | Reverting a previous commit |
+| Type       | Use for                                                                     |
+| ---------- | --------------------------------------------------------------------------- |
+| `feat`     | A new user-facing feature                                                   |
+| `fix`      | A bug fix, including visual and accessibility bugs                          |
+| `refactor` | A code change with no behavior change                                       |
+| `perf`     | A performance improvement                                                   |
+| `style`    | Formatting only (whitespace, quotes, semicolons), not CSS or visual changes |
+| `docs`     | Documentation only                                                          |
+| `test`     | Adding or fixing tests                                                      |
+| `build`    | Build system, engines, Next.js, PostCSS or TypeScript configuration         |
+| `ci`       | CI configuration                                                            |
+| `chore`    | Maintenance: dependencies (`chore(deps)`), tooling, housekeeping            |
+| `revert`   | Reverting a previous commit                                                 |
 
 Common scopes (not exhaustive): a section name (`hero`, `projects`, `contact`), `coming-soon`, `site-header`, `theme`, `content`, `ui`, `deps`, `agents`, `readme`.
 

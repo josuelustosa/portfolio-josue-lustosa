@@ -4,19 +4,19 @@ How the portfolio is built and where things go. Exact dependency versions live i
 
 ## Stack
 
-| Layer | Choice | Notes |
-|---|---|---|
-| Framework | Next.js, App Router | Turbopack for `dev` and `build`. Version-matched docs ship in `node_modules/next/dist/docs/`. |
-| UI | React 19 | React Compiler enabled (`reactCompiler: true` in `next.config.ts`, via `babel-plugin-react-compiler`). |
-| Language | TypeScript, `strict` | Path alias `@/*` → `src/*`. |
-| Styling | Tailwind CSS v4 | CSS-first config in `src/app/globals.css` (no `tailwind.config.*`), PostCSS plugin `@tailwindcss/postcss`, animations from `tw-animate-css`, class merging with `cn()` (`clsx` + `tailwind-merge`). |
-| Theming | `next-themes` | Wrapped by `src/components/theme/`. |
-| Font | Jura via `next/font/google` | Exposed as `--font-jura`, mapped to `font-sans` and `font-mono`. |
-| Lint | ESLint 9, flat config | `eslint-config-next` presets `core-web-vitals` and `typescript`. |
-| Formatting | Prettier + `.editorconfig` | `prettier-plugin-tailwindcss` sorts classes, reading the theme from `src/app/globals.css` and also inside `cn()`/`clsx()`. Config: `prettier.config.mjs`; `pnpm-lock.yaml` is ignored. |
-| Tooling | pnpm 10 or 11+, Node.js ≥ 20.19.0 | `engine-strict=true` in `.npmrc`. Node.js 20.19 is required by the Prettier Tailwind plugin. |
-| Editor | VS Code settings in `.vscode/` | Recommended extensions (EditorConfig, Prettier, ESLint, Tailwind CSS IntelliSense) and format on save. |
-| Hosting | Vercel | |
+| Layer      | Choice                            | Notes                                                                                                                                                                                               |
+| ---------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Framework  | Next.js, App Router               | Turbopack for `dev` and `build`. Version-matched docs ship in `node_modules/next/dist/docs/`.                                                                                                       |
+| UI         | React 19                          | React Compiler enabled (`reactCompiler: true` in `next.config.ts`, via `babel-plugin-react-compiler`).                                                                                              |
+| Language   | TypeScript, `strict`              | Path alias `@/*` → `src/*`.                                                                                                                                                                         |
+| Styling    | Tailwind CSS v4                   | CSS-first config in `src/app/globals.css` (no `tailwind.config.*`), PostCSS plugin `@tailwindcss/postcss`, animations from `tw-animate-css`, class merging with `cn()` (`clsx` + `tailwind-merge`). |
+| Theming    | `next-themes`                     | Wrapped by `src/components/theme/`.                                                                                                                                                                 |
+| Font       | Jura via `next/font/google`       | Exposed as `--font-jura`, mapped to `font-sans` and `font-mono`.                                                                                                                                    |
+| Lint       | ESLint 9, flat config             | `eslint-config-next` presets `core-web-vitals` and `typescript`.                                                                                                                                    |
+| Formatting | Prettier + `.editorconfig`        | `prettier-plugin-tailwindcss` sorts classes, reading the theme from `src/app/globals.css` and also inside `cn()`/`clsx()`. Config: `prettier.config.mjs`; `pnpm-lock.yaml` is ignored.              |
+| Tooling    | pnpm 10 or 11+, Node.js ≥ 20.19.0 | `engine-strict=true` in `.npmrc`. Node.js 20.19 is required by the Prettier Tailwind plugin.                                                                                                        |
+| Editor     | VS Code settings in `.vscode/`    | Recommended extensions (EditorConfig, Prettier, ESLint, Tailwind CSS IntelliSense) and format on save.                                                                                              |
+| Hosting    | Vercel                            |                                                                                                                                                                                                     |
 
 ## Organization
 
@@ -53,14 +53,14 @@ AGENTS.md                       # Instructions for AI coding agents
 
 Planned, created only when there is real content or a real use for them:
 
-| Path | Purpose |
-|---|---|
-| `components/sections/{about,projects,experience,contact}.tsx` | Remaining landing page sections |
-| `components/ui/{button,badge,section-heading}.tsx` | Primitives the sections will share |
-| `components/reveal.tsx` | Client component for scroll-triggered entrance animations |
-| `components/site-footer.tsx` | Landing page footer |
-| `content/{projects,experience}.ts` | Section data |
-| `app/opengraph-image.tsx` | Generated share image |
+| Path                                                          | Purpose                                                   |
+| ------------------------------------------------------------- | --------------------------------------------------------- |
+| `components/sections/{about,projects,experience,contact}.tsx` | Remaining landing page sections                           |
+| `components/ui/{button,badge,section-heading}.tsx`            | Primitives the sections will share                        |
+| `components/reveal.tsx`                                       | Client component for scroll-triggered entrance animations |
+| `components/site-footer.tsx`                                  | Landing page footer                                       |
+| `content/{projects,experience}.ts`                            | Section data                                              |
+| `app/opengraph-image.tsx`                                     | Generated share image                                     |
 
 ## Rendering
 
@@ -94,8 +94,8 @@ For when the header gets a menu:
 
 ## Environment variables
 
-| Variable | Read in | Effect |
-|---|---|---|
+| Variable           | Read in            | Effect                                                                   |
+| ------------------ | ------------------ | ------------------------------------------------------------------------ |
 | `COMING_SOON_MODE` | `src/app/page.tsx` | `"true"` renders `ComingSoon`; any other value renders the landing page. |
 
 - The home route is static, so the value is read **at build time**. Changing it requires a new build (`pnpm build`) or a Vercel redeploy; restarting `pnpm start` is not enough.
@@ -123,15 +123,15 @@ For when the header gets a menu:
 
 ## Adding things
 
-| To add | Do this |
-|---|---|
-| A landing page section | Create `src/components/sections/<name>.tsx` (Server Component), put its data in `src/content/<name>.ts` and add it to `page.tsx` in order. |
-| A UI primitive | Create `src/components/ui/<name>.tsx`, accept `className`, follow [design-system.md](design-system.md). |
-| Content | Add or extend a typed `as const` export in `src/content/`. |
-| An icon or logo | Add the SVG to `src/assets/icons/` with a kebab-case name (`<name>-logo.svg`). |
-| An environment variable | Add it to `.env.example` and to the table above; read it on the server. |
-| A route | Only for real pages (project details, blog). Create `src/app/<route>/page.tsx` and revisit the [organization](#organization) rules. |
-| A dependency | Run `pnpm add <pkg>` (`-D` for tooling) and follow the dependency policy below. |
+| To add                  | Do this                                                                                                                                    |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| A landing page section  | Create `src/components/sections/<name>.tsx` (Server Component), put its data in `src/content/<name>.ts` and add it to `page.tsx` in order. |
+| A UI primitive          | Create `src/components/ui/<name>.tsx`, accept `className`, follow [design-system.md](design-system.md).                                    |
+| Content                 | Add or extend a typed `as const` export in `src/content/`.                                                                                 |
+| An icon or logo         | Add the SVG to `src/assets/icons/` with a kebab-case name (`<name>-logo.svg`).                                                             |
+| An environment variable | Add it to `.env.example` and to the table above; read it on the server.                                                                    |
+| A route                 | Only for real pages (project details, blog). Create `src/app/<route>/page.tsx` and revisit the [organization](#organization) rules.        |
+| A dependency            | Run `pnpm add <pkg>` (`-D` for tooling) and follow the dependency policy below.                                                            |
 
 ## Quality gates
 

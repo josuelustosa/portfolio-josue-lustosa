@@ -8,14 +8,14 @@ Personal portfolio of Josué Lustosa, front-end developer. Next.js App Router, R
 
 ## Commands
 
-| Task | Command |
-|---|---|
-| Install | `pnpm install --frozen-lockfile` |
-| Dev server | `pnpm dev` (http://localhost:3000) |
-| Lint | `pnpm lint` |
-| Type check | `pnpm exec tsc --noEmit` |
-| Format | `pnpm format` (check: `pnpm format:check`) |
-| Build and serve | `pnpm build`, then `pnpm start` |
+| Task            | Command                                    |
+| --------------- | ------------------------------------------ |
+| Install         | `pnpm install --frozen-lockfile`           |
+| Dev server      | `pnpm dev` (http://localhost:3000)         |
+| Lint            | `pnpm lint`                                |
+| Type check      | `pnpm exec tsc --noEmit`                   |
+| Format          | `pnpm format` (check: `pnpm format:check`) |
+| Build and serve | `pnpm build`, then `pnpm start`            |
 
 There is no test runner yet. A change is done when lint, type check, format check and build pass.
 
@@ -37,12 +37,12 @@ There is no test runner yet. A change is done when lint, type check, format chec
 
 ## Docs
 
-| Read | When |
-|---|---|
-| [docs/architecture.md](docs/architecture.md) | Adding sections, components, content, routes or env vars; changing config or dependencies |
-| [docs/design-system.md](docs/design-system.md) | Any UI or styling change |
-| [docs/conventional-commits.md](docs/conventional-commits.md) | Before committing or creating a branch |
-| [docs/pull-requests.md](docs/pull-requests.md) | Before opening a pull request |
+| Read                                                         | When                                                                                      |
+| ------------------------------------------------------------ | ----------------------------------------------------------------------------------------- |
+| [docs/architecture.md](docs/architecture.md)                 | Adding sections, components, content, routes or env vars; changing config or dependencies |
+| [docs/design-system.md](docs/design-system.md)               | Any UI or styling change                                                                  |
+| [docs/conventional-commits.md](docs/conventional-commits.md) | Before committing or creating a branch                                                    |
+| [docs/pull-requests.md](docs/pull-requests.md)               | Before opening a pull request                                                             |
 
 <!-- The block below is managed by Next.js: `next dev` rewrites it. Don't edit it by hand. -->
 

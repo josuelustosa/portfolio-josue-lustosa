@@ -15,15 +15,15 @@ Tailwind only scans `src/` for class names (`@import "tailwindcss" source("..")`
 
 CSS variables are defined on `:root` (dark) and `html.light` (light), then exposed to Tailwind through `@theme inline`.
 
-| Tailwind color | CSS variable | Dark | Light | Use for |
-|---|---|---|---|---|
-| `background` | `--bg-base` | `#080808` | `#f6f6f3` | Page background |
-| `surface` | `--bg-surface` | `#101010` | `#d1d1d1` | Cards, tiles, toggles |
-| `elevated` | `--bg-elevated` | `#1a1a1a` | `#bdbdbd` | Hover states, modals, tile borders |
-| `foreground` | `--text-primary` | `#f2f2ee` | `#151513` | Headings and body text |
-| `muted` | `--text-secondary` | `#696969` | `#5f5f5a` | Secondary text and labels |
-| `accent` | `--accent` | `#fe6526` | `#fe6526` | CTAs, active states, hover borders, focus rings |
-| `border` | `--border` | `#222220` | `#d9d9d3` | Dividers and outlines |
+| Tailwind color | CSS variable       | Dark      | Light     | Use for                                         |
+| -------------- | ------------------ | --------- | --------- | ----------------------------------------------- |
+| `background`   | `--bg-base`        | `#080808` | `#f6f6f3` | Page background                                 |
+| `surface`      | `--bg-surface`     | `#101010` | `#d1d1d1` | Cards, tiles, toggles                           |
+| `elevated`     | `--bg-elevated`    | `#1a1a1a` | `#bdbdbd` | Hover states, modals, tile borders              |
+| `foreground`   | `--text-primary`   | `#f2f2ee` | `#151513` | Headings and body text                          |
+| `muted`        | `--text-secondary` | `#696969` | `#5f5f5a` | Secondary text and labels                       |
+| `accent`       | `--accent`         | `#fe6526` | `#fe6526` | CTAs, active states, hover borders, focus rings |
+| `border`       | `--border`         | `#222220` | `#d9d9d3` | Dividers and outlines                           |
 
 - The names work with every color utility: `bg-surface`, `text-muted`, `border-accent`, `ring-accent`, `shadow-accent`, …
 - Opacity modifiers work too: `text-foreground/80`, `ring-accent/60`, `shadow-accent/25`.
@@ -40,15 +40,15 @@ CSS variables are defined on `:root` (dark) and `html.light` (light), then expos
 
 WCAG 2.2 ratios of the current tokens. Level AA requires 4.5:1 for normal text, and 3:1 for large text (≥ 24px, or ≥ 18.66px bold) and for UI components and icons.
 
-| Foreground on background | Dark | Light |
-|---|---|---|
+| Foreground on background                              | Dark                     | Light                   |
+| ----------------------------------------------------- | ------------------------ | ----------------------- |
 | `foreground` on `background` · `surface` · `elevated` | 17.84 · 16.95 · 15.51 ✅ | 16.89 · 11.97 · 9.73 ✅ |
-| `muted` on `background` | 3.65 ⚠️ large text only | 5.93 ✅ |
-| `muted` on `surface` | 3.47 ⚠️ large text only | 4.20 ⚠️ large text only |
-| `accent` on `background` | 6.77 ✅ | 2.73 ❌ |
-| `accent` on `surface` | 6.44 ✅ | 1.94 ❌ |
-| `background` on `accent` | 6.77 ✅ | 2.73 ❌ |
-| `black` on `accent` | 7.10 ✅ | 7.10 ✅ |
+| `muted` on `background`                               | 3.65 ⚠️ large text only  | 5.93 ✅                 |
+| `muted` on `surface`                                  | 3.47 ⚠️ large text only  | 4.20 ⚠️ large text only |
+| `accent` on `background`                              | 6.77 ✅                  | 2.73 ❌                 |
+| `accent` on `surface`                                 | 6.44 ✅                  | 1.94 ❌                 |
+| `background` on `accent`                              | 6.77 ✅                  | 2.73 ❌                 |
+| `black` on `accent`                                   | 7.10 ✅                  | 7.10 ✅                 |
 
 Until the tokens are revised:
 
@@ -61,12 +61,12 @@ Until the tokens are revised:
 - **Family:** Jura (`next/font/google`, `latin` subset), used for both `font-sans` and `font-mono`.
 - **Scale:** Tailwind's default type scale. Current patterns:
 
-| Role | Classes |
-|---|---|
-| Page title (`h1`) | `text-4xl md:text-5xl font-bold tracking-tighter text-foreground` |
-| Lead paragraph | `text-base md:text-lg font-medium text-foreground/80` |
-| Small print (footer) | `text-sm font-light tracking-wide` |
-| Buttons, labels, tooltips | `text-sm font-medium` |
+| Role                      | Classes                                                           |
+| ------------------------- | ----------------------------------------------------------------- |
+| Page title (`h1`)         | `text-4xl md:text-5xl font-bold tracking-tighter text-foreground` |
+| Lead paragraph            | `text-base md:text-lg font-medium text-foreground/80`             |
+| Small print (footer)      | `text-sm font-light tracking-wide`                                |
+| Buttons, labels, tooltips | `text-sm font-medium`                                             |
 
 - One `h1` per page, with heading levels in order.
 
@@ -79,12 +79,12 @@ Until the tokens are revised:
 
 ## Patterns
 
-| Pattern | Classes | Example |
-|---|---|---|
-| Icon tile | `rounded-lg bg-surface border border-elevated hover:bg-elevated hover:border-accent hover:shadow-lg hover:shadow-accent/25 transition-all duration-300` | Tech and social tiles in `ComingSoon` |
-| Tooltip | Absolute `span` with `px-3 py-1 rounded-md bg-accent text-black text-sm font-medium`, shown via `opacity-0 group-hover/<name>:opacity-100` | `ComingSoon` |
-| Segmented toggle | Container `inline-flex gap-1 rounded-full border border-border bg-surface p-1`; active `bg-accent text-black`; inactive `text-muted hover:bg-elevated hover:text-foreground`; `aria-pressed` on each button | `ThemeToggle` |
-| Focus ring | `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60` on every interactive element | `ThemeToggle` |
+| Pattern          | Classes                                                                                                                                                                                                     | Example                               |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| Icon tile        | `rounded-lg bg-surface border border-elevated hover:bg-elevated hover:border-accent hover:shadow-lg hover:shadow-accent/25 transition-all duration-300`                                                     | Tech and social tiles in `ComingSoon` |
+| Tooltip          | Absolute `span` with `px-3 py-1 rounded-md bg-accent text-black text-sm font-medium`, shown via `opacity-0 group-hover/<name>:opacity-100`                                                                  | `ComingSoon`                          |
+| Segmented toggle | Container `inline-flex gap-1 rounded-full border border-border bg-surface p-1`; active `bg-accent text-black`; inactive `text-muted hover:bg-elevated hover:text-foreground`; `aria-pressed` on each button | `ThemeToggle`                         |
+| Focus ring       | `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60` on every interactive element                                                                                                 | `ThemeToggle`                         |
 
 - When a tooltip belongs to a focusable element, also show it on keyboard focus (`group-focus-visible/<name>:opacity-100`).
 
