@@ -1,3 +1,8 @@
+# pnpm 11+ reads allowBuilds; pnpm 10 reads ignoredBuiltDependencies.
+# Keep both lists in sync until the project settles on one pnpm major.
+allowBuilds:
+  sharp: false
+  unrs-resolver: false
 ignoredBuiltDependencies:
   - sharp
   - unrs-resolver

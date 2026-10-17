@@ -1,15 +1,18 @@
-"use client"
+"use client";
 
 import {
   ThemeProvider as NextThemesProvider,
   type ThemeProviderProps as NextThemesProviderProps,
-} from "next-themes"
+} from "next-themes";
 
-import type { ThemeMode } from "@/app/hooks/useTheme"
+import type { ThemeMode } from "./use-theme";
 
-export type AppThemeProviderProps = Omit<NextThemesProviderProps, "defaultTheme"> & {
-  defaultTheme?: ThemeMode
-}
+export type AppThemeProviderProps = Omit<
+  NextThemesProviderProps,
+  "defaultTheme"
+> & {
+  defaultTheme?: ThemeMode;
+};
 
 export function ThemeProvider({
   children,
@@ -20,5 +23,5 @@ export function ThemeProvider({
     <NextThemesProvider defaultTheme={defaultTheme} {...props}>
       {children}
     </NextThemesProvider>
-  )
+  );
 }
