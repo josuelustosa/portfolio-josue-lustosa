@@ -14,9 +14,10 @@ Personal portfolio of Josué Lustosa, front-end developer. Next.js App Router, R
 | Dev server | `pnpm dev` (http://localhost:3000) |
 | Lint | `pnpm lint` |
 | Type check | `pnpm exec tsc --noEmit` |
+| Format | `pnpm format` (check: `pnpm format:check`) |
 | Build and serve | `pnpm build`, then `pnpm start` |
 
-There is no test runner yet. A change is done when lint, type check and build pass.
+There is no test runner yet. A change is done when lint, type check, format check and build pass.
 
 ## Rules
 
@@ -31,7 +32,7 @@ There is no test runner yet. A change is done when lint, type check and build pa
 - **Styling:** Tailwind utilities with design tokens only, never hard-coded colors. See [docs/design-system.md](docs/design-system.md).
 - **Environment:** never commit `.env.local`. Document new variables in `.env.example` and [docs/architecture.md](docs/architecture.md#environment-variables). `COMING_SOON_MODE` is read at build time.
 - **Dependencies:** follow the [dependency policy](docs/architecture.md#dependency-policy): exact pins, and the peer-range blockers for TypeScript and ESLint majors.
-- **Formatting:** no formatter is configured. Match the style of the file you are editing.
+- **Formatting:** Prettier (with Tailwind class sorting) and `.editorconfig` own the style. Run `pnpm format` instead of formatting by hand.
 - **Docs:** when a change alters something documented, update the doc in the same change.
 
 ## Docs
@@ -45,6 +46,7 @@ There is no test runner yet. A change is done when lint, type check and build pa
 
 <!-- The block below is managed by Next.js: `next dev` rewrites it. Don't edit it by hand. -->
 
+<!-- prettier-ignore-start -->
 <!-- BEGIN:nextjs-agent-rules -->
 
 ## This is NOT the Next.js you know
@@ -54,3 +56,4 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+<!-- prettier-ignore-end -->

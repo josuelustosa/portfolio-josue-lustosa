@@ -13,7 +13,9 @@ How the portfolio is built and where things go. Exact dependency versions live i
 | Theming | `next-themes` | Wrapped by `src/components/theme/`. |
 | Font | Jura via `next/font/google` | Exposed as `--font-jura`, mapped to `font-sans` and `font-mono`. |
 | Lint | ESLint 9, flat config | `eslint-config-next` presets `core-web-vitals` and `typescript`. |
-| Tooling | pnpm 10 or 11+, Node.js ≥ 20.9.0 | `engine-strict=true` in `.npmrc`. |
+| Formatting | Prettier + `.editorconfig` | `prettier-plugin-tailwindcss` sorts classes, reading the theme from `src/app/globals.css` and also inside `cn()`/`clsx()`. Config: `prettier.config.mjs`; `pnpm-lock.yaml` is ignored. |
+| Tooling | pnpm 10 or 11+, Node.js ≥ 20.19.0 | `engine-strict=true` in `.npmrc`. Node.js 20.19 is required by the Prettier Tailwind plugin. |
+| Editor | VS Code settings in `.vscode/` | Recommended extensions (EditorConfig, Prettier, ESLint, Tailwind CSS IntelliSense) and format on save. |
 | Hosting | Vercel | |
 
 ## Organization
@@ -117,7 +119,7 @@ For when the header gets a menu:
 - **Types:** keep types next to the module that owns them (e.g. `ThemeMode` in `use-theme.ts`, `SocialLink` in `site.ts`).
 - **React Compiler:** don't add `useMemo`, `useCallback` or `memo` for performance by default, and don't call `setState` synchronously inside effects (enforced by `react-hooks/set-state-in-effect`).
 - **Images:** import local images statically and render them with `next/image`. SVGs are served as-is from `/_next/static/media`; keep `images.dangerouslyAllowSVG` disabled (the default).
-- **Formatting:** no formatter is configured. Match the style of the file you are editing.
+- **Formatting:** Prettier owns the style (double quotes, semicolons, trailing commas, 2-space indent, LF). Run `pnpm format`; don't hand-format or reorder Tailwind classes.
 
 ## Adding things
 
@@ -133,7 +135,7 @@ For when the header gets a menu:
 
 ## Quality gates
 
-`pnpm lint`, `pnpm exec tsc --noEmit` and `pnpm build` must pass before every commit. There are no automated tests or CI yet.
+`pnpm lint`, `pnpm exec tsc --noEmit`, `pnpm format:check` and `pnpm build` must pass before every commit. There are no automated tests or CI yet.
 
 ## Dependency policy
 

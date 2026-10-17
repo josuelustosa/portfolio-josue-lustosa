@@ -6,7 +6,7 @@ How to open a pull request in this repository, including the [description templa
 
 - [ ] The branch follows `<type>/<short-description>` and is based on an up-to-date `main`.
 - [ ] Commits follow [conventional-commits.md](conventional-commits.md), are atomic, and each one passes the quality gates.
-- [ ] `pnpm lint`, `pnpm exec tsc --noEmit` and `pnpm build` pass.
+- [ ] `pnpm lint`, `pnpm exec tsc --noEmit`, `pnpm format:check` and `pnpm build` pass.
 - [ ] UI changes are checked in light and dark themes, at mobile and desktop widths.
 - [ ] The diff has no `.env.local`, secrets or unrelated files (`git diff --stat main...HEAD`).
 
@@ -89,6 +89,7 @@ Add `--draft` while the work is in progress.
 pnpm install --frozen-lockfile
 pnpm lint
 pnpm exec tsc --noEmit
+pnpm format:check
 pnpm build
 ```
 
@@ -96,7 +97,7 @@ pnpm build
 
 ## Checklist
 
-- [ ] Lint, type check and build pass locally
+- [ ] Lint, type check, format check and build pass locally
 - [ ] Commits follow Conventional Commits and are atomic
 - [ ] No secrets or `.env.local` values committed
 - [ ] Visual changes checked in light and dark themes

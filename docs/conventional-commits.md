@@ -56,7 +56,7 @@ Never add AI agent attribution (`Co-Authored-By: <agent>`, "Generated with …")
 ## Atomic commits
 
 - One logical change per commit. Split unrelated changes even when they were made together.
-- Every commit passes `pnpm lint`, `pnpm exec tsc --noEmit` and `pnpm build`, so history stays bisectable. Order commits so prerequisites land first.
+- Every commit passes `pnpm lint`, `pnpm exec tsc --noEmit`, `pnpm format:check` and `pnpm build`, so history stays bisectable. Order commits so prerequisites land first.
 - Commit `package.json` and `pnpm-lock.yaml` together, in the commit that needs the change.
 - Never commit `.env.local`, build output (`.next/`) or editor files.
 
