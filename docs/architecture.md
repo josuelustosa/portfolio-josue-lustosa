@@ -13,7 +13,7 @@ How the portfolio is built and where things go. Exact dependency versions live i
 | Theming | `next-themes` | Wrapped by `src/components/theme/`. |
 | Font | Jura via `next/font/google` | Exposed as `--font-jura`, mapped to `font-sans` and `font-mono`. |
 | Lint | ESLint 9, flat config | `eslint-config-next` presets `core-web-vitals` and `typescript`. |
-| Tooling | pnpm ≥ 10, Node.js ≥ 20.9.0 | `engine-strict=true` in `.npmrc`. |
+| Tooling | pnpm 10 or 11+, Node.js ≥ 20.9.0 | `engine-strict=true` in `.npmrc`. |
 | Hosting | Vercel | |
 
 ## Organization
@@ -144,5 +144,6 @@ For when the header gets a menu:
   - TypeScript must stay below 6.1, the limit of `typescript-eslint`.
   - ESLint must stay on 9, the limit of `eslint-plugin-react`, `eslint-plugin-import` and `eslint-plugin-jsx-a11y`, which `eslint-config-next` bundles.
 - **`@types/node`** follows the minimum supported Node.js major (currently 20), not the latest.
-- **Install scripts:** pnpm blocks dependency build scripts. `pnpm-workspace.yaml` lists the ones intentionally ignored (`sharp`, `unrs-resolver`).
+- **pnpm versions:** the project works with pnpm 10 and 11+, and the lockfile stays on format `9.0`. Prefer pnpm 10 for commands that change the lockfile (`pnpm dlx pnpm@10 add …`), so it isn't re-keyed by newer resolution rules.
+- **Install scripts:** pnpm blocks dependency build scripts. `pnpm-workspace.yaml` denies the intentionally skipped ones (`sharp`, `unrs-resolver`) twice: `allowBuilds` for pnpm 11+ and `ignoredBuiltDependencies` for pnpm 10. Keep both lists in sync.
 - After any update, run the quality gates and `pnpm audit`.
